@@ -6730,7 +6730,7 @@ Partial Class Form1
         Me.BtnLogedN.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnLogedN.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnLogedN.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.BtnLogedN.Location = New System.Drawing.Point(760, 7)
+        Me.BtnLogedN.Location = New System.Drawing.Point(743, 7)
         Me.BtnLogedN.Name = "BtnLogedN"
         Me.BtnLogedN.Size = New System.Drawing.Size(60, 60)
         Me.BtnLogedN.TabIndex = 2
@@ -6747,7 +6747,7 @@ Partial Class Form1
         Me.GBLogged.Controls.Add(Me.LblUName)
         Me.GBLogged.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GBLogged.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GBLogged.Location = New System.Drawing.Point(300, 3)
+        Me.GBLogged.Location = New System.Drawing.Point(283, 3)
         Me.GBLogged.Name = "GBLogged"
         Me.GBLogged.Size = New System.Drawing.Size(330, 105)
         Me.GBLogged.TabIndex = 2

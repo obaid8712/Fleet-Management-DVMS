@@ -4621,7 +4621,8 @@ Public Class Form1
 
 
         'Get the Word Tempelate
-        oDoc = oWord.Documents.Add("\\NJEDIOB01\MyShare\templet\PrintApp001.dotx")
+        'oDoc = oWord.Documents.Add("\\NJEDIOB01\MyShare\templet\PrintApp001.dotx")
+        oDoc = oWord.Documents.Add("\\IMFI-LENOVO-111\ShareFile\MyShare\templet\PrintApp001.dotx")
         'oDoc.Application.Visible = False
         'oDoc.Application.ShowWindowsInTaskbar = False
         'GET APPLICANT DATA
@@ -4670,18 +4671,18 @@ Public Class Form1
         Next
 
         ' Save my document as defoult word format and Close document and quit word app
-        oDoc.SaveAs2("\\NJEDIOB01\MyShare\bbb12")
+        oDoc.SaveAs2("\\IMFI-LENOVO-111\ShareFile\MyShare\bbb12")
         oDoc.Close()
         oWord.Quit()
         'Convert saved word document to pdf
-        Dim Source As String = "\\NJEDIOB01\MyShare\bbb12.docx"
-        Dim Target As String = "\\NJEDIOB01\MyShare\bpdfb12"
+        Dim Source As String = "\\IMFI-LENOVO-111\ShareFile\MyShare\bbb12.docx"
+        Dim Target As String = "\\IMFI-LENOVO-111\ShareFile\MyShare\bpdfb12"
         Word2PDF(Source, Target)
         '###########
         'Delete Word file
         Dim FileToDelete As String
 
-        FileToDelete = "\\NJEDIOB01\MyShare\bbb12.docx"
+        FileToDelete = "\\IMFI-LENOVO-111\ShareFile\MyShare\bbb12.docx"
         'FileToDelete = "C:\Users\Owner\Documents\testDelete.txt"
         If System.IO.File.Exists(FileToDelete) = True Then
             'System.IO.File.Move(FileToDelete, ">>bbb12.docx")
@@ -4691,7 +4692,7 @@ Public Class Form1
         End If
         '###########
         'open pdf file to browser
-        Process.Start("\\NJEDIOB01\MyShare\bpdfb12.pdf")
+        Process.Start("\\IMFI-LENOVO-111\ShareFile\MyShare\bpdfb12.pdf")
     End Sub
 
     'WORD TO PDF CONVERSION
@@ -4751,8 +4752,8 @@ Public Class Form1
     End Sub
 
     Private Sub BtnAllFormApp_Click(sender As Object, e As EventArgs) Handles BtnAllFormApp.Click
-        Dim Source As String = "\\NJEDIOB01\MyShare\abcd.docx"
-        Dim Target As String = "\\NJEDIOB01\MyShare\abcd1"
+        Dim Source As String = "\\IMFI-LENOVO-111\ShareFile\MyShare\abcd.docx"
+        Dim Target As String = "\\IMFI-LENOVO-111\ShareFile\MyShare\abcd1"
         Word2PDF(Source, Target)
     End Sub
 End Class
