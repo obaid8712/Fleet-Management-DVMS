@@ -4676,7 +4676,7 @@ Public Class Form1
         oWord.Quit()
         'Convert saved word document to pdf
         Dim Source As String = "\\IMFI-LENOVO-111\ShareFile\MyShare\bbb12.docx"
-        Dim Target As String = "\\IMFI-LENOVO-111\ShareFile\MyShare\bpdfb12"
+        Dim Target As String = "\\IMFI-LENOVO-111\ShareFile\MyShare\Aaaa12"
         Word2PDF(Source, Target)
         '###########
         'Delete Word file
@@ -4686,13 +4686,13 @@ Public Class Form1
         'FileToDelete = "C:\Users\Owner\Documents\testDelete.txt"
         If System.IO.File.Exists(FileToDelete) = True Then
             'System.IO.File.Move(FileToDelete, ">>bbb12.docx")
-            System.IO.File.Delete(FileToDelete)
+            'System.IO.File.Delete(FileToDelete)
             'MsgBox("File Deleted")
 
         End If
         '###########
         'open pdf file to browser
-        Process.Start("\\IMFI-LENOVO-111\ShareFile\MyShare\bpdfb12.pdf")
+        Process.Start("\\IMFI-LENOVO-111\ShareFile\MyShare\Aaaa12.pdf")
     End Sub
 
     'WORD TO PDF CONVERSION
