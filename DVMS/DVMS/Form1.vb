@@ -572,6 +572,7 @@ Public Class Form1
                 ' CALL ADD NEW APPLICANT
                 LblTitleApp.Text = "Add New Applicant"
                 BtnUpdANA.Hide()
+                BtnUpdCancelANA.Hide()
                 BtnUpdEdGenInfo.Hide()
 
                 TxtCoidApp.Text = coid
@@ -1247,17 +1248,20 @@ Public Class Form1
 
         BtnSaveANA.Hide()
         BtnSaveAddANA.Hide()
+        BtnCancelANA.Hide()
         BtnUpdANA.SetBounds(150, 910, 81, 24)
-
+        BtnUpdCancelANA.SetBounds(235, 910, 81, 24)
         BtnUpdEdGenInfo.SetBounds(325, 910, 165, 24)
         BtnUpdANA.Show()
+        BtnUpdCancelANA.Show()
         BtnUpdEdGenInfo.Show()
 
-        TxtEmpIDApp.Hide()
-        TxtCoidApp.Hide()
+        'TxtEmpIDApp.Hide()
+        'TxtCoidApp.Hide()
         FetchEditApp()
     End Sub
     'Public EmpFID As Object
+    Public tfull As String
 
     Private Sub FetchEditApp()
         Dim FullName As String
@@ -1285,7 +1289,7 @@ Public Class Form1
         For Each r As DataRow In SQL.DBDT.Rows
             tempstr1 = If(IsDBNull(r("EmpMI")), String.Empty, r("EmpMI").ToString)
             FullName = r("EmpFirstName") & " " & tempstr1 & " " & r("EmpLastName")
-
+            tfull = FullName
             LblTitleApp.Text = "Edit Applicant " & r("EmpFirstName") & " " & tempstr1 & " " & r("EmpLastName")
 
             EmpCode = r("EmpCode")
@@ -1379,14 +1383,29 @@ Public Class Form1
 
     Private Sub BtnUpdANA_Click(sender As Object, e As EventArgs) Handles BtnUpdANA.Click
         '################UPDATE EDIT APPLICANT
+
         UpdAddApp()
-        ClearAddApp()
+        'ClearAddApp()
         GBAddApp.Hide()
-        BtnAppProcess.Enabled = True
+        'BtnAppProcess.Enabled = True
+        tempcode = TxtEmpIDApp.Text()
+        'tFullName = TxtFname.Text() + " " + TxtLname.Text()
+        BoxViewApp()
+        LblViewApp.Text = "View Applcant " & tfull
+        FetchViewApp()
+    End Sub
+    Private Sub BtnUpdCancelANA_Click(sender As Object, e As EventArgs) Handles BtnUpdCancelANA.Click
+
+        GBAddApp.Hide()
+        tempcode = TxtEmpIDApp.Text()
+        BoxViewApp()
+        'tfull = TxtFname.Text()
+        LblViewApp.Text = "View Applcant " & tfull
+        FetchViewApp()
     End Sub
     Private Sub BtnUpdEdGenInfo_Click(sender As Object, e As EventArgs) Handles BtnUpdEdGenInfo.Click
         UpdAddApp()
-        ClearAddApp()
+        'ClearAddApp()
         GBAddApp.Hide()
         '  CALL General Info
         GBViewApp.Hide()
@@ -2004,7 +2023,7 @@ Public Class Form1
             '*******************
             'LIST BOX ENTRY PERSONAL INFO                              
             LBPinfoView.Items.Add("Date of Application" & vbTab & DateTrimR(r("AppDate")))
-            tempstr1 = If(IsDBNull(r("Position")), String.Empty, r("Position").ToString)
+            tempstr1 = If(IsDBNull(r("AppPosition")), String.Empty, r("AppPosition").ToString)
             LBPinfoView.Items.Add("Position(s) Applied for" & vbTab & tempstr1)
             LBPinfoView.Items.Add("Social Security" & vbTab & "XXX-XXX-" & r("Lssn"))
             LBPinfoView.Items.Add("Home Address" & vbTab & If(IsDBNull(r("EmpAddress")), String.Empty, r("EmpAddress").ToString))
@@ -2648,11 +2667,13 @@ Public Class Form1
         ''gbSelectAppCompany.Hide()
         ''gbGeneral2.Show()
         BtnSaveANA.Hide()
+        BtnCancelANA.Hide()
         BtnSaveAddANA.Hide()
         BtnUpdANA.SetBounds(150, 910, 81, 24)
-        'BtnCancelApp.SetBounds(525, 550, 80, 30)
+        BtnUpdCancelANA.SetBounds(235, 910, 81, 24)
         BtnUpdEdGenInfo.SetBounds(325, 910, 165, 24)
         BtnUpdANA.Show()
+        BtnUpdCancelANA.Show()
         BtnUpdEdGenInfo.Show()
         TxtCoidApp.Hide()
         TxtEmpIDApp.Hide()
@@ -4622,7 +4643,7 @@ Public Class Form1
 
         'Get the Word Tempelate
         'oDoc = oWord.Documents.Add("\\NJEDIOB01\MyShare\templet\PrintApp001.dotx")
-        oDoc = oWord.Documents.Add("\\IMFI-LENOVO-111\ShareFile\MyShare\templet\PrintApp001.dotx")
+        oDoc = oWord.Documents.Add("\\IMFI-LENOVO-111\ShareFile\MyShare\templet\Emp_App.dotx")
         'oDoc.Application.Visible = False
         'oDoc.Application.ShowWindowsInTaskbar = False
         'GET APPLICANT DATA
@@ -4638,13 +4659,29 @@ Public Class Form1
         For Each r As DataRow In SQL.DBDT.Rows
 
             oDoc.Bookmarks.Item("APPDT").Range.Text = DateTrimR(r("AppDate"))
-            oDoc.Bookmarks.Item("POSAPP").Range.Text = If(IsDBNull(r("AppPosition")), String.Empty, r("AppPosition").ToString)
-            tempstr1 = If(IsDBNull(r("EmpFirstName")), String.Empty, r("EmpFirstName").ToString)
-            tempstr2 = If(IsDBNull(r("EmpLastName")), String.Empty, r("EmpLastName").ToString)
-            oDoc.Bookmarks.Item("MYNAME").Range.Text = tempstr1 + " " + If(IsDBNull(r("EmpMI")), String.Empty, r("EmpMI").ToString) + " " + tempstr2
+            oDoc.Bookmarks.Item("POSAPP1").Range.Text = If(IsDBNull(r("AppPosition")), String.Empty, r("AppPosition").ToString)
+            ' tempstr1 = If(IsDBNull(r("EmpFirstName")), String.Empty, r("EmpFirstName").ToString)
+            'tempstr2 = If(IsDBNull(r("EmpLastName")), String.Empty, r("EmpLastName").ToString)
+            oDoc.Bookmarks.Item("LNAME").Range.Text = If(IsDBNull(r("EmpLastName")), String.Empty, r("EmpLastName").ToString) + ", "
+            oDoc.Bookmarks.Item("FNAME").Range.Text = If(IsDBNull(r("EmpFirstName")), String.Empty, r("EmpFirstName").ToString)
+            oDoc.Bookmarks.Item("MNAME").Range.Text = If(IsDBNull(r("EmpMI")), String.Empty, r("EmpMI").ToString)
             oDoc.Bookmarks.Item("SNF").Range.Text = If(IsDBNull(r("Fssn")), String.Empty, r("Fssn").ToString)
             oDoc.Bookmarks.Item("SM").Range.Text = If(IsDBNull(r("Mssn")), String.Empty, r("Mssn").ToString)
             oDoc.Bookmarks.Item("SNL").Range.Text = If(IsDBNull(r("Lssn")), String.Empty, r("Lssn").ToString)
+            oDoc.Bookmarks.Item("EADD").Range.Text = If(IsDBNull(r("EmpAddress")), String.Empty, r("EmpAddress").ToString)
+            oDoc.Bookmarks.Item("EAPT").Range.Text = If(IsDBNull(r("EmpApt")), String.Empty, r("EmpApt").ToString)
+            oDoc.Bookmarks.Item("ECITY").Range.Text = If(IsDBNull(r("EmpCity")), String.Empty, r("EmpCity").ToString)
+
+            oDoc.Bookmarks.Item("ESTATE").Range.Text = If(IsDBNull(r("EmpState")), String.Empty, r("EmpState").ToString)
+            oDoc.Bookmarks.Item("EZIP").Range.Text = If(IsDBNull(r("EmpFirstZip")), String.Empty, r("EmpFirstZip").ToString)
+            oDoc.Bookmarks.Item("HPHONE").Range.Text = If(IsDBNull(r("HomePhone")), String.Empty, r("HomePhone").ToString)
+            'tempstr1 = If(IsDBNull(r("ProofAge")), String.Empty, r("ProofAge").ToString)
+            If r("ProofAge") = 1 Then
+                tempstr2 = "Yes"
+            Else
+                tempstr2 = "No"
+            End If
+            oDoc.Bookmarks.Item("PROOFAGE").Range.Text = tempstr2
             coidapp = r("CompanyID")
         Next
 
@@ -4756,4 +4793,6 @@ Public Class Form1
         Dim Target As String = "\\IMFI-LENOVO-111\ShareFile\MyShare\abcd1"
         Word2PDF(Source, Target)
     End Sub
+
+
 End Class

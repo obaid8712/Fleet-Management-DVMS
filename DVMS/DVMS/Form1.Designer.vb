@@ -334,6 +334,7 @@ Partial Class Form1
         Me.BtnSaveAddANA = New System.Windows.Forms.Button()
         Me.BtnUpdANA = New System.Windows.Forms.Button()
         Me.BtnSaveANA = New System.Windows.Forms.Button()
+        Me.BtnUpdCancelANA = New System.Windows.Forms.Button()
         Me.BtnCancelANA = New System.Windows.Forms.Button()
         Me.LblTitleApp = New System.Windows.Forms.Label()
         Me.GBAddEmp = New System.Windows.Forms.GroupBox()
@@ -638,7 +639,7 @@ Partial Class Form1
         Me.TabConMaster.Multiline = True
         Me.TabConMaster.Name = "TabConMaster"
         Me.TabConMaster.SelectedIndex = 0
-        Me.TabConMaster.Size = New System.Drawing.Size(1353, 1051)
+        Me.TabConMaster.Size = New System.Drawing.Size(1359, 1051)
         Me.TabConMaster.TabIndex = 1
         '
         'TabHome
@@ -646,7 +647,7 @@ Partial Class Form1
         Me.TabHome.Location = New System.Drawing.Point(4, 29)
         Me.TabHome.Name = "TabHome"
         Me.TabHome.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabHome.Size = New System.Drawing.Size(1345, 1018)
+        Me.TabHome.Size = New System.Drawing.Size(1362, 1018)
         Me.TabHome.TabIndex = 0
         Me.TabHome.Text = "Home"
         Me.TabHome.UseVisualStyleBackColor = True
@@ -679,7 +680,7 @@ Partial Class Form1
         Me.TabEmp.Location = New System.Drawing.Point(4, 29)
         Me.TabEmp.Name = "TabEmp"
         Me.TabEmp.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabEmp.Size = New System.Drawing.Size(1345, 1018)
+        Me.TabEmp.Size = New System.Drawing.Size(1351, 1018)
         Me.TabEmp.TabIndex = 1
         Me.TabEmp.Text = "Employee"
         Me.TabEmp.UseVisualStyleBackColor = True
@@ -3338,11 +3339,12 @@ Partial Class Form1
         Me.GBAddApp.Controls.Add(Me.BtnSaveAddANA)
         Me.GBAddApp.Controls.Add(Me.BtnUpdANA)
         Me.GBAddApp.Controls.Add(Me.BtnSaveANA)
+        Me.GBAddApp.Controls.Add(Me.BtnUpdCancelANA)
         Me.GBAddApp.Controls.Add(Me.BtnCancelANA)
         Me.GBAddApp.Controls.Add(Me.LblTitleApp)
-        Me.GBAddApp.Location = New System.Drawing.Point(1076, 105)
+        Me.GBAddApp.Location = New System.Drawing.Point(1076, 103)
         Me.GBAddApp.Name = "GBAddApp"
-        Me.GBAddApp.Size = New System.Drawing.Size(700, 24)
+        Me.GBAddApp.Size = New System.Drawing.Size(700, 31)
         Me.GBAddApp.TabIndex = 1
         Me.GBAddApp.TabStop = False
         '
@@ -4062,6 +4064,17 @@ Partial Class Form1
         Me.BtnSaveANA.TabIndex = 50
         Me.BtnSaveANA.Text = "Save"
         Me.BtnSaveANA.UseVisualStyleBackColor = True
+        '
+        'BtnUpdCancelANA
+        '
+        Me.BtnUpdCancelANA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnUpdCancelANA.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.BtnUpdCancelANA.Location = New System.Drawing.Point(487, 937)
+        Me.BtnUpdCancelANA.Name = "BtnUpdCancelANA"
+        Me.BtnUpdCancelANA.Size = New System.Drawing.Size(81, 24)
+        Me.BtnUpdCancelANA.TabIndex = 55
+        Me.BtnUpdCancelANA.Text = "Cancel"
+        Me.BtnUpdCancelANA.UseVisualStyleBackColor = True
         '
         'BtnCancelANA
         '
@@ -4811,9 +4824,9 @@ Partial Class Form1
         Me.GBViewApp.Controls.Add(Me.GBPinfoView)
         Me.GBViewApp.Controls.Add(Me.BtnCancelView)
         Me.GBViewApp.Controls.Add(Me.LblViewApp)
-        Me.GBViewApp.Location = New System.Drawing.Point(1228, 621)
+        Me.GBViewApp.Location = New System.Drawing.Point(1076, 512)
         Me.GBViewApp.Name = "GBViewApp"
-        Me.GBViewApp.Size = New System.Drawing.Size(760, 80)
+        Me.GBViewApp.Size = New System.Drawing.Size(760, 592)
         Me.GBViewApp.TabIndex = 1
         Me.GBViewApp.TabStop = False
         '
@@ -6027,7 +6040,7 @@ Partial Class Form1
         Me.GBListApp.Controls.Add(Me.Label64)
         Me.GBListApp.Controls.Add(Me.Label65)
         Me.GBListApp.Controls.Add(Me.Label66)
-        Me.GBListApp.Location = New System.Drawing.Point(1076, 133)
+        Me.GBListApp.Location = New System.Drawing.Point(1076, 135)
         Me.GBListApp.Name = "GBListApp"
         Me.GBListApp.Size = New System.Drawing.Size(700, 24)
         Me.GBListApp.TabIndex = 1
@@ -6698,6 +6711,7 @@ Partial Class Form1
         Me.TxtPassword.Name = "TxtPassword"
         Me.TxtPassword.Size = New System.Drawing.Size(169, 26)
         Me.TxtPassword.TabIndex = 2
+        Me.TxtPassword.UseSystemPasswordChar = True
         '
         'TxtUserName
         '
@@ -6730,7 +6744,7 @@ Partial Class Form1
         Me.BtnLogedN.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnLogedN.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnLogedN.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.BtnLogedN.Location = New System.Drawing.Point(709, 7)
+        Me.BtnLogedN.Location = New System.Drawing.Point(613, 7)
         Me.BtnLogedN.Name = "BtnLogedN"
         Me.BtnLogedN.Size = New System.Drawing.Size(60, 60)
         Me.BtnLogedN.TabIndex = 2
@@ -6747,7 +6761,7 @@ Partial Class Form1
         Me.GBLogged.Controls.Add(Me.LblUName)
         Me.GBLogged.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GBLogged.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GBLogged.Location = New System.Drawing.Point(249, 3)
+        Me.GBLogged.Location = New System.Drawing.Point(700, 3)
         Me.GBLogged.Name = "GBLogged"
         Me.GBLogged.Size = New System.Drawing.Size(330, 105)
         Me.GBLogged.TabIndex = 2
@@ -6796,7 +6810,7 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1370, 749)
+        Me.ClientSize = New System.Drawing.Size(1376, 773)
         Me.Controls.Add(Me.BtnLogedN)
         Me.Controls.Add(Me.GBLogged)
         Me.Controls.Add(Me.GBLogin)
@@ -7425,4 +7439,5 @@ Partial Class Form1
     Friend WithEvents GBReportVApp As GroupBox
     Friend WithEvents BtnAllFormApp As Button
     Friend WithEvents BtnPrintApp As Button
+    Friend WithEvents BtnUpdCancelANA As Button
 End Class
