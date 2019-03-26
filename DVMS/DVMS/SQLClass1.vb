@@ -6,12 +6,8 @@ Public Class SQLClass1
 End Class
 
 Public Class SQLControl
-    Private DBCon As New SqlConnection With {.ConnectionString = "Data Source=imfi-lenovo-111;Initial Catalog=dbDAVMS01;Password=L5tm5insql;Persist Security Info=True;User ID=obaid1"}
-
-    'Data Source=10.50.160.92;Initial Catalog=dbDAVMS01;Persist Security Info=True;User ID=obaid1
-    '10.50.160.51
-    'imfi-lenovo-111
-    'Data Source=NJEDIOB01;Initial Catalog=dbDAVMS01;Persist Security Info=True;User ID=obaid100
+    Private DBCon As New SqlConnection With {.ConnectionString = "Data Source=imfi-lenovo-111;Initial Catalog=dbDAVMS01;Password=******;Persist Security Info=True;User ID=******"}
+   
     Private DBCmd As SqlCommand
 
     ' DB DATA
